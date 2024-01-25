@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import './app.scss';
+import Info from "./Info";
+import Pic from "./Pic";
+import ReviewItem from "./ReviewItem";
+import review from "./allReviews";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="wrapper">
+        <div className="info">
+          <Info/>
+          <Pic/>
+        </div>
+        <div className="review">
+          <h2>Рецензії</h2>
+          {review.map(elem => <ReviewItem
+                                      key = {elem.id}
+                                      text = {elem.text} />)}
+        </div>
+      </div>
+    </>
   );
 }
-
-export default App;
